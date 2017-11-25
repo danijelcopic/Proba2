@@ -44,6 +44,7 @@ import rs.aleph.android.example13.activities.db.model.Notes;
 
 import static rs.aleph.android.example13.R.id.input_notes_name;
 
+import static rs.aleph.android.example13.R.id.notes_name;
 import static rs.aleph.android.example13.activities.activity.FirstActivity.NOTIF_TOAST;
 
 
@@ -94,15 +95,15 @@ public class SecondActivity extends AppCompatActivity  {
             String date = sdf.format(notes.getmDate());
 
             // name
-            TextView notesName = (TextView) findViewById(input_notes_name);
+            TextView notesName = (TextView) findViewById(notes_name);
             notesName.setText(name);
 
             //description
-            TextView notesDescription = (TextView) findViewById(R.id.input_notes_description);
+            TextView notesDescription = (TextView) findViewById(R.id.notes_description);
             notesDescription.setText(description);
 
             //date
-            TextView notesDate = (TextView) findViewById(R.id.input_notes_date);
+            TextView notesDate = (TextView) findViewById(R.id.notes_date);
             notesDate.setText(date);
 
 

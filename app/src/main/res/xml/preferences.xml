@@ -5,6 +5,7 @@
         android:key="pref_settings"
         android:title="Preferences">
 
+       <!-- toast check box-->
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="@string/pref_toast"
