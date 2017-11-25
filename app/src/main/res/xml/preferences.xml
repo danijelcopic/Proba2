@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="pref_settings"
+        android:title="Preferences">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/pref_toast"
+            android:summary="@string/pref_toast_summary"
+            android:title="@string/pref_toast_title" />
+
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
