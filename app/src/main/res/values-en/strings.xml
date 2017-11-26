@@ -17,4 +17,5 @@
     <string name="pref_toast_title">Allow Toast</string>
     <string name="save">SAVE</string>
     <string name="second_action_delete">Delete</string>
+    <string name="dialog_about_cancel">CANCEL</string>
 </resources>

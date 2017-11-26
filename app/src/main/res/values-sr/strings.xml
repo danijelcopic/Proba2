@@ -17,4 +17,5 @@
     <string name="second_action_delete">Obriši</string>
     <string name="pref_toast_title">Omogući obaveštenje</string>
     <string name="pref_toast_summary">Obaveštenje</string>
+    <string name="dialog_about_cancel">OTKAŽI</string>
 </resources>

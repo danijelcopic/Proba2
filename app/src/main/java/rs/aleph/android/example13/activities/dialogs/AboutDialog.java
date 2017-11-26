@@ -20,6 +20,12 @@ public class AboutDialog extends AlertDialog.Builder {
                 dialog.dismiss();
             }
         });
+
+        setNegativeButton(R.string.dialog_about_cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        });
     }
 
 

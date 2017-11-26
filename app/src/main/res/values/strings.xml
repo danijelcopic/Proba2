@@ -17,8 +17,10 @@
 
     <!-- about -->
     <string name="dialog_about_ok">OK</string>
+    <string name="dialog_about_cancel">CANCEL</string>
     <string name="dialog_about_title">AUTHOR:</string>
     <string name="dialog_about_message">Danijel Copic</string>
+
 
     <!-- settings -->
     <string name="pref_toast">pref_toast</string>
@@ -31,6 +33,7 @@
     <string name="label_date">DATE:</string>
     <string name="save">SAVE</string>
     <string name="cancel">CANCEL</string>
+
 
 
 </resources>
