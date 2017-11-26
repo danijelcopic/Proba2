@@ -36,19 +36,13 @@ import rs.aleph.android.example13.activities.db.model.Notes;
 import rs.aleph.android.example13.activities.dialogs.AboutDialog;
 
 
-
-
 public class FirstActivity extends AppCompatActivity {
 
 
-
+    public static String NOTIF_TOAST = "pref_toast";
     private DatabaseHelper databaseHelper;
     private AlertDialog dialogAlert;
     private SharedPreferences preferences;
-
-
-    public static String NOTIF_TOAST = "pref_toast";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,23 +50,10 @@ public class FirstActivity extends AppCompatActivity {
         setContentView(R.layout.first_activity);
 
 
-
         // TOOLBAR
         // aktiviranje toolbara
         Toolbar toolbar = (Toolbar) findViewById(R.id.first_toolbar);
         setSupportActionBar(toolbar);
-
-
-//        // toolbar i ikonica za Navigatio drawer
-//        final android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-//        if (actionBar != null) {
-//            actionBar.setDisplayHomeAsUpEnabled(true);
-//           // actionBar.setHomeAsUpIndicator(R.drawable.ic_action_drawer); // ikona Navigation Drawer
-//            actionBar.setHomeButtonEnabled(true);
-//            actionBar.show();
-//        }
-
-
 
 
         // status podesavanja
@@ -146,7 +127,7 @@ public class FirstActivity extends AppCompatActivity {
                 final EditText notesDate = (EditText) dialog.findViewById(R.id.input_notes_date);
 
 
-                Button ok = (Button) dialog.findViewById(R.id.ok);
+                Button ok = (Button) dialog.findViewById(R.id.save);
                 ok.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -185,7 +166,7 @@ public class FirstActivity extends AppCompatActivity {
                             boolean toast = preferences.getBoolean(NOTIF_TOAST, false);
 
                             if (toast) {
-                                Toast.makeText(FirstActivity.this, "New notes is entered", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(FirstActivity.this, "New note is added", Toast.LENGTH_SHORT).show();
                             }
 
                             refresh(); // osvezavanje baze
@@ -203,6 +184,15 @@ public class FirstActivity extends AppCompatActivity {
                 cancel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        //provera podesavanja
+                        boolean toast = preferences.getBoolean(NOTIF_TOAST, false);
+
+                        if (toast) {
+                            Toast.makeText(FirstActivity.this, "New note is canceled", Toast.LENGTH_SHORT).show();
+                        }
+
+                        refresh(); // osvezavanje baze
                         dialog.dismiss();
                     }
                 });
@@ -211,10 +201,12 @@ public class FirstActivity extends AppCompatActivity {
 
                 break;
 
+
             case R.id.action_settings:
                 Intent settings = new Intent(FirstActivity.this, SettingsActivity.class);  // saljemo intent SettingsActivity.class
                 startActivity(settings);
                 break;
+
 
             case R.id.action_about:
                 if (dialogAlert == null) {
@@ -267,9 +259,6 @@ public class FirstActivity extends AppCompatActivity {
     }
 
 
-
-
-
     // kompatibilnost u nazad
     @Override
     public void setTitle(CharSequence title) {
@@ -277,7 +266,7 @@ public class FirstActivity extends AppCompatActivity {
     }
 
 
-    // ovde refreshujemo bazu kada smo se vratili iz druge aktivnosti (kada je glumac obrisan, pa da se vise ne pokazuje)
+    // ovde refreshujemo bazu kada smo se vratili iz druge aktivnosti
     @Override
     protected void onResume() {
         super.onResume();
@@ -288,8 +277,7 @@ public class FirstActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        // nakon rada sa bazo podataka potrebno je obavezno
-        //osloboditi resurse!
+        // nakon rada sa bazom podataka potrebno je obavezno osloboditi resurse!!!
         if (databaseHelper != null) {
             OpenHelperManager.releaseHelper();
             databaseHelper = null;

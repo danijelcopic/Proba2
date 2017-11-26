@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Beleška</string>
+    <string name="activity_settings_name">Podešavanja</string>
+    <string name="cancel">OTKAŽI</string>
+    <string name="dialog_about_message">Danijel Ćopić</string>
+    <string name="dialog_about_ok">OK</string>
+    <string name="dialog_about_title">AUTOR:</string>
+    <string name="first_action_about">O aplikaciji</string>
+    <string name="first_action_add">Dodaj</string>
+    <string name="first_action_settings">Podešavanja</string>
+    <string name="label_date">DATUM:</string>
+    <string name="label_description">OPIS:</string>
+    <string name="label_notes">NAZIV:</string>
+    <string name="pref_toast">pode_obaveštenja</string>
+    <string name="save">SNIMI</string>
+    <string name="second_action_delete">Obriši</string>
+    <string name="pref_toast_title">Omogući obaveštenje</string>
+    <string name="pref_toast_summary">Obaveštenje</string>
+</resources>

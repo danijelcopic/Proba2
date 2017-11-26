@@ -1,54 +1,32 @@
 package rs.aleph.android.example13.activities.activity;
 
-
-import android.app.Dialog;
-import android.app.NotificationManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.j256.ormlite.android.apptools.OpenHelperManager;
-import com.squareup.picasso.Picasso;
 
 import java.sql.SQLException;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 import rs.aleph.android.example13.R;
 import rs.aleph.android.example13.activities.db.DatabaseHelper;
 import rs.aleph.android.example13.activities.db.model.Notes;
 
 
-import static rs.aleph.android.example13.R.id.input_notes_name;
-
 import static rs.aleph.android.example13.R.id.notes_name;
 import static rs.aleph.android.example13.activities.activity.FirstActivity.NOTIF_TOAST;
 
 
-public class SecondActivity extends AppCompatActivity  {
+public class SecondActivity extends AppCompatActivity {
 
     private int position = 0;
 
@@ -106,43 +84,10 @@ public class SecondActivity extends AppCompatActivity  {
             TextView notesDate = (TextView) findViewById(R.id.notes_date);
             notesDate.setText(date);
 
-
-
-//
-//            // prikazujemo listu  u drugoj aktivnosti
-//            final ListView listView = (ListView) findViewById(R.id.inputListaFilmovaGlumac);
-//
-//            List<Notes> notes = getDatabaseHelper().getmNotesDao(). // konstruisemo QueryBuilder
-//                    queryBuilder().
-//                    where().
-//                    eq(Notes.FIELD_NAME_NAME, position).
-//                    query();
-//
-//            List<String> filmoviNazivi = new ArrayList<>();
-//            for (Film f : filmovi) {
-//                filmoviNazivi.add(f.getFilmNaziv());
-//            }
-//            ListAdapter adapter = new ArrayAdapter<String>(SecondActivity.this, R.layout.list_item_notes, filmoviNazivi);
-//            listView.setAdapter(adapter);
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
-    // //provera podesavanja (toast ) ...
-    private void showMessage(String message) {
-
-        boolean toast = preferences.getBoolean(NOTIF_TOAST, false);
-
-
-        if (toast) {  // ako je aktivan toast prikazi ovo
-            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-        }
-    }
-
-
 
 
     // MENU
@@ -164,7 +109,13 @@ public class SecondActivity extends AppCompatActivity  {
                 try {
                     getDatabaseHelper().getmNotesDao().delete(notes);
 
-                    showMessage("The notes has been deleted");
+                    //provera podesavanja
+                    boolean toast = preferences.getBoolean(NOTIF_TOAST, false);
+
+                    if (toast) {
+                        Toast.makeText(SecondActivity.this, "Note is deleted", Toast.LENGTH_SHORT).show();
+                    }
+
 
                     finish();
 
@@ -179,17 +130,23 @@ public class SecondActivity extends AppCompatActivity  {
     }
 
 
-
-
-
-
-
     //Metoda koja komunicira sa bazom podataka
     public DatabaseHelper getDatabaseHelper() {
         if (databaseHelper == null) {
             databaseHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
         }
         return databaseHelper;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        // nakon rada sa bazom podataka potrebno je obavezno osloboditi resurse!!!
+        if (databaseHelper != null) {
+            OpenHelperManager.releaseHelper();
+            databaseHelper = null;
+        }
     }
 
 

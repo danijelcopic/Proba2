@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- add -->
     <item
         android:id="@+id/action_add"
-        android:title="@string/first_action_add"
         android:icon="@drawable/ic_action_add"
+        android:title="@string/first_action_add"
         app:showAsAction="always" />
 
+   <!-- settings -->
     <item
         android:id="@+id/action_settings"
-        android:title="@string/first_action_settings"
         android:icon="@drawable/ic_action_settings"
+        android:title="@string/first_action_settings"
         app:showAsAction="always" />
 
+    <!-- about -->
     <item
         android:id="@+id/action_about"
-        android:title="@string/first_action_about"
         android:icon="@drawable/ic_action_about"
+        android:title="@string/first_action_about"
         app:showAsAction="always" />
 
 </menu>

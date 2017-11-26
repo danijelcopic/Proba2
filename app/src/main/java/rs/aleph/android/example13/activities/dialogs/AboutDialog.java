@@ -6,7 +6,7 @@ import android.support.v7.app.AlertDialog;
 
 import rs.aleph.android.example13.R;
 
-public class AboutDialog extends AlertDialog.Builder{
+public class AboutDialog extends AlertDialog.Builder {
 
     public AboutDialog(Context context) {
         super(context);
@@ -23,7 +23,7 @@ public class AboutDialog extends AlertDialog.Builder{
     }
 
 
-    public AlertDialog prepareDialog(){
+    public AlertDialog prepareDialog() {
         AlertDialog dialog = create();
         dialog.setCanceledOnTouchOutside(false);
 

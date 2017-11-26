@@ -26,13 +26,11 @@
     <string name="pref_toast_summary">Toast notification</string>
 
     <!-- dialog -->
-    <string name="label_notes">Name:</string>
-    <string name="label_description">Description:</string>
-    <string name="label_date">Date:</string>
-    <string name="ok">OK</string>
+    <string name="label_notes">NAME:</string>
+    <string name="label_description">DESCRIPTION:</string>
+    <string name="label_date">DATE:</string>
+    <string name="save">SAVE</string>
     <string name="cancel">CANCEL</string>
-
-
 
 
 </resources>
