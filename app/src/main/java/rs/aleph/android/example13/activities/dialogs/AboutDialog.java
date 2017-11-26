@@ -28,7 +28,6 @@ public class AboutDialog extends AlertDialog.Builder {
         });
     }
 
-
     public AlertDialog prepareDialog() {
         AlertDialog dialog = create();
         dialog.setCanceledOnTouchOutside(false);
