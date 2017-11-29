@@ -38,15 +38,15 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.second_activity);
+        setContentView(R.layout.activity_second);
 
         // TOOLBAR
         // aktiviranje toolbara 2 koji je drugaciji od onog iz prve aktivnosti
-        Toolbar toolbar = (Toolbar) findViewById(R.id.second_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_second);
         setSupportActionBar(toolbar);
 
 
-        // prikazivanje strelice u nazad u toolbaru ... mora se u manifestu definisati zavisnost parentActivityName
+        // prikazivanje strelice u nazad u toolbaru, itd. ... mora se u manifestu definisati zavisnost parentActivityName
         final android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
@@ -94,7 +94,7 @@ public class SecondActivity extends AppCompatActivity {
     // prikaz menija
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.second_menu, menu);
+        getMenuInflater().inflate(R.menu.menu_second, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

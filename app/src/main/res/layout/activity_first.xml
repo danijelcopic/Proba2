@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/first_toolbar"
+            android:id="@+id/toolbar_first"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
@@ -24,7 +24,7 @@
 
     <!-- list -->
     <ListView
-        android:id="@+id/listFirstActivity"
+        android:id="@+id/list_first_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

@@ -47,12 +47,12 @@ public class FirstActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.first_activity);
+        setContentView(R.layout.activity_first);
 
 
         // TOOLBAR
         // aktiviranje toolbara
-        Toolbar toolbar = (Toolbar) findViewById(R.id.first_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_first);
         setSupportActionBar(toolbar);
 
 
@@ -76,7 +76,7 @@ public class FirstActivity extends AppCompatActivity {
             notesName.add(i.getmName());
         }
 
-        final ListView listView = (ListView) findViewById(R.id.listFirstActivity); // definisemo u koji View saljemo podatke (listFirstActivity)
+        final ListView listView = (ListView) findViewById(R.id.list_first_activity); // definisemo u koji View saljemo podatke (listFirstActivity)
         ArrayAdapter<String> adapter = new ArrayAdapter<>(FirstActivity.this, R.layout.list_item, notesName);  // definisemo kako ce izgledati jedna stavka u View (list_item)
         listView.setAdapter(adapter);
 
@@ -104,7 +104,7 @@ public class FirstActivity extends AppCompatActivity {
     // prikaz menija
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.first_menu, menu);
+        getMenuInflater().inflate(R.menu.menu_first, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -241,7 +241,7 @@ public class FirstActivity extends AppCompatActivity {
 
     // refresh() prikazuje novi sadrzaj.Povucemo nov sadrzaj iz baze i popunimo listu
     private void refresh() {
-        ListView listview = (ListView) findViewById(R.id.listFirstActivity);
+        ListView listview = (ListView) findViewById(R.id.list_first_activity);
         if (listview != null) {
             ArrayAdapter<Notes> adapter = (ArrayAdapter<Notes>) listview.getAdapter();
             if (adapter != null) {
@@ -259,7 +259,7 @@ public class FirstActivity extends AppCompatActivity {
     }
 
 
-    // kompatibilnost u nazad
+    // za prikaz naziva u toolbar-u
     @Override
     public void setTitle(CharSequence title) {
         getSupportActionBar().setTitle(title);
